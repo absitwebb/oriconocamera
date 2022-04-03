@@ -1,0 +1,14 @@
+.containertop {
+  display: flex;
+  max-width: 100%;
+  position: relative;
+
+  &_block1 {
+    width: 25%;
+    height: 600px;
+    background: $colorprimary;
+    position: absolute;
+    left: 50rem;
+    margin-top: 3rem;
+  }
+}
