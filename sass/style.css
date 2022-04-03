@@ -1,0 +1,136 @@
+@charset "UTF-8";
+/* démarrer projet sans marges intérieures et exterieures */
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Ré-équilibrage du Rem face au Pixel pour des calculs simples */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+  /* = 14px */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main {
+  width: 1300px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*largeurs écrans pour médiaqueries*/
+@font-face {
+  font-family: fontflowers;
+  src: url("/public/fonts/SendFlowers-Regular.ttf");
+}
+
+.toolbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  height: 10rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: #394d60;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.titlesite {
+  font-family: fontflowers, cursif;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  color: white;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+nav a {
+  max-width: 100%;
+  /* tous les liens a à l'intérieur de la balise nav */
+  float: left;
+  /* effet flottant */
+  color: #ffffff;
+  /* couleur du texte */
+  background: #534f4f;
+  /* couleur de fond */
+  height: 36px;
+  /* hauteur */
+  line-height: 33px;
+  /* interligne */
+  padding: 0 10px;
+  /* marges intérieur */
+  font-family: sans-serif;
+  /* police d'écriture */
+  font-size: 13px;
+  /* taille du texte */
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  /* temps de transition lors du hover : une demi seconde */
+}
+
+nav a:hover {
+  /* tous liens lors du survol dans la balise nav */
+  background: #e8662b;
+  /* couleur de fond */
+}
+
+.logophoto {
+  display: none;
+}
+
+/* responsive desktop*/
+@media (min-width: 1300px) {
+  nav a {
+    padding: 0 60px;
+  }
+  .logophoto {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 120px;
+    margin-right: 2rem;
+  }
+}
+
+.containertop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  position: relative;
+}
+
+.containertop_block1 {
+  width: 25%;
+  height: 600px;
+  background: #e8662b;
+  position: absolute;
+  left: 50rem;
+  margin-top: 3rem;
+}
+/*# sourceMappingURL=style.css.map */
