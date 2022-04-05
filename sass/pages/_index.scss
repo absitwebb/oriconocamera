@@ -2,13 +2,87 @@
   display: flex;
   max-width: 100%;
   position: relative;
-
+  background: rgb(146, 144, 144);
   &_block1 {
     width: 25%;
-    height: 600px;
+    height: 300px;
     background: $colorprimary;
     position: absolute;
-    left: 50rem;
+    left: 15rem;
     margin-top: 3rem;
+    @include block1(mobile);
+  }
+
+  &_block2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 200px;
+    z-index: 2;
+    background: $colorsecondary;
+    position: absolute;
+    left: 2rem;
+    top: 5rem;
+    @include block2(mobile);
+    h1 {
+      color: white;
+      font-size: 2rem;
+      margin-left: 2rem;
+      margin-top: 4rem;
+    }
+    h2 {
+      color: white;
+      font-size: 2rem;
+      margin-left: 2rem;
+    }
+  }
+  &_block3 {
+    width: 50%;
+    height: 50%;
+    margin-left: 17rem;
+    background: $colorsecondary;
+    background: linear-gradient(to left top, $colorsecondary, $colorprimary);
+    margin-top: 15rem;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @include block3(mobile);
+  }
+}
+// _____responsive_______________
+@include screen-size(desktop) {
+  .containertop {
+    &_block1 {
+      height: 600px;
+      left: 50rem;
+      @include block1(desktop);
+    }
+    &_block2 {
+      width: 40%;
+      height: 400px;
+      left: 10rem;
+      top: 10rem;
+      @include block2(desktop);
+      h1 {
+        font-size: 3rem;
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+    }
+    &_block3 {
+      width: 40%;
+      height: 40%;
+      margin-left: 60rem;
+
+      background: $colorsecondary;
+      background: linear-gradient(to left top, $colorsecondary, $colorprimary);
+      margin-top: 16rem;
+    }
   }
 }

@@ -1,0 +1,87 @@
+// mixins pour responsive animation block containertop
+@mixin block1($size) {
+  @if $size == mobile {
+    @keyframes block1 {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(+30px);
+      }
+    }
+  } @else if $size ==desktop {
+    @keyframes block1 {
+      0% {
+        opacity: 0;
+        transform: translateX(-90%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+    }
+  }
+  animation-name: block1;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+@mixin block2($size) {
+  @if $size == mobile {
+    @keyframes block2 {
+      0% {
+        opacity: 0;
+        transform: translatey(-30%);
+      }
+      100% {
+        opacity: 1;
+        transform: translatey(0px);
+      }
+    }
+  } @else if $size ==desktop {
+    @keyframes block2 {
+      0% {
+        opacity: 0;
+        transform: translatey(-90%);
+      }
+      100% {
+        opacity: 1;
+        transform: translatey(0px);
+      }
+    }
+  }
+  animation-name: block2;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+@mixin block3($size) {
+  @if $size == mobile {
+    @keyframes block3 {
+      0% {
+        opacity: 0;
+        transform: translatex(+30%);
+      }
+      100% {
+        opacity: 1;
+        transform: translatex(+0px);
+      }
+    }
+  } @else if $size ==desktop {
+    @keyframes _block3 {
+      0% {
+        opacity: 0;
+        transform: translatey(-90%);
+      }
+      100% {
+        opacity: 1;
+        transform: translatey(0px);
+      }
+    }
+  }
+  animation-name: block3;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
