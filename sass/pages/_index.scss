@@ -54,6 +54,52 @@
     @include block3(mobile);
   }
 }
+
+//____ container cameras__________
+.containercameras {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding-left: 1rem;
+  background: linear-gradient(to left top, $colorprimary, $colorsecondary);
+  &_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: $colorsecondary;
+    height: 30px;
+    width: 100%;
+    border-radius: 15px 15px 0px 0px;
+    h2 {
+      color: white;
+      font-size: 2.5rem;
+      margin-left: 1.5rem;
+    }
+    i {
+      margin-right: 1.5rem;
+      font-size: 3rem;
+      color: $colorprimary;
+    }
+  }
+  &_block {
+    display: flex;
+    flex-direction: column;
+    z-index: 4;
+    align-items: center;
+    max-width: 100%;
+    height: 200px;
+    background: #534f4f;
+    border-radius: 15px 15px 15px 15px;
+    margin-top: 1rem;
+  }
+  img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+  }
+  @include blockcameras(mobile);
+}
+
 // _____responsive_______________
 @include screen-size(desktop) {
   .containertop {
@@ -83,6 +129,14 @@
       background: $colorsecondary;
       background: linear-gradient(to left top, $colorsecondary, $colorprimary);
       margin-top: 16rem;
+    }
+  }
+  .containercameras {
+    flex-direction: row;
+    justify-content: space-between;
+    &_block {
+      height: 300px;
+      width: 30%;
     }
   }
 }
