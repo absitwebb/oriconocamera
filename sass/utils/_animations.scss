@@ -85,3 +85,32 @@
   animation-duration: 4s;
   animation-fill-mode: forwards;
 }
+// mixins pour responsive animation block containercameras
+@mixin blockcameras($size) {
+  @if $size == mobile {
+    @keyframes blockcameras {
+      0% {
+        opacity: 0;
+        transform: translatey(+50%);
+      }
+      100% {
+        opacity: 1;
+        transform: translatey(0px);
+      }
+    }
+  } @else if $size ==desktop {
+    @keyframes blockcameras {
+      0% {
+        opacity: 0;
+        transform: translatey(-90%);
+      }
+      100% {
+        opacity: 1;
+        transform: translatey(0px);
+      }
+    }
+  }
+  animation-name: blockcameras;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
