@@ -53,6 +53,27 @@
     }
     @include block3(mobile);
   }
+  .vintage {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 80px;
+    margin-top: 5rem;
+
+    z-index: 5;
+    align-items: center;
+
+    background: $colorsecondary;
+    h2 {
+      color: $colorprimary;
+      margin-left: 3rem;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      color: white;
+      padding-left: 1rem;
+    }
+  }
 }
 
 //____ container cameras__________
@@ -129,6 +150,10 @@
       background: $colorsecondary;
       background: linear-gradient(to left top, $colorsecondary, $colorprimary);
       margin-top: 16rem;
+    }
+    .vintage {
+      margin-right: 5rem;
+      transition: 2s;
     }
   }
   .containercameras {
