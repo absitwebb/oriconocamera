@@ -1,4 +1,4 @@
-// mixins pour responsive animation block containertop
+// mixins pour responsive animation block containertop block 1
 @mixin block1($size) {
   @if $size == mobile {
     @keyframes block1 {
@@ -27,7 +27,7 @@
   animation-duration: 4s;
   animation-fill-mode: forwards;
 }
-
+// mixins pour responsive animation block containertop block 2
 @mixin block2($size) {
   @if $size == mobile {
     @keyframes block2 {
@@ -56,7 +56,7 @@
   animation-duration: 4s;
   animation-fill-mode: forwards;
 }
-
+// mixins pour responsive animation block containertop block3
 @mixin block3($size) {
   @if $size == mobile {
     @keyframes block3 {
@@ -85,7 +85,7 @@
   animation-duration: 4s;
   animation-fill-mode: forwards;
 }
-// mixins pour responsive animation block containercameras
+// mixins pour responsive animation bloc containercameras
 @mixin blockcameras($size) {
   @if $size == mobile {
     @keyframes blockcameras {
@@ -112,5 +112,51 @@
   }
   animation-name: blockcameras;
   animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+// mixins pour responsive animation bloc bannière
+@mixin blockbanniere($size) {
+  @if $size == mobile {
+    @keyframes blockbanniere {
+      0% {
+        opacity: 0;
+        transform: translateX(+0%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(+200%);
+      }
+    }
+  } @else if $size ==desktop {
+    @keyframes blockbanniere {
+      0% {
+        opacity: 0;
+        transform: translatex(+0%);
+      }
+      100% {
+        opacity: 1;
+        transform: translatex(+200px);
+      }
+    }
+  }
+  animation-name: blockbanniere;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+// mixins pour responsive animation bloc bannière text
+@mixin blockbanniereText() {
+  @keyframes blockbanniereText {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  animation-name: blockbanniereText;
+  animation-duration: 6s;
   animation-fill-mode: forwards;
 }
