@@ -13,6 +13,6 @@ function AffichTextBanniere(TextBanniere) {
   boxTextBanniere.innerHTML = ` ${TextBanniere}`;
   document.querySelector(".bannierename").appendChild(boxTextBanniere);
 }
-//affiche img dans bannière vintage
+//affiche img et text dans bannière vintage
 affichImgBanniere(ImgbanniereVintage);
 AffichTextBanniere("Vintage");
