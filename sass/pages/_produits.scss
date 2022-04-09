@@ -16,3 +16,27 @@
     @include blockbanniereText();
   }
 }
+
+.affichProduits {
+  display: flex;
+  flex-direction: column;
+}
+.bloc-produit {
+  max-width: 100%;
+  min-height: auto;
+  justify-content: center;
+  background: $colorsecondary;
+  &_title {
+    color: white;
+    font-size: 2.8rem;
+  }
+  &_img {
+    display: flex;
+    max-height: 200px;
+    object-fit: cover;
+  }
+  &_descript {
+    color: white;
+    font-size: 2rem;
+  }
+}
