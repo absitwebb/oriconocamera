@@ -518,4 +518,90 @@ nav a:hover {
     width: 30%;
   }
 }
+
+.bannierename {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  height: 100px;
+  background: #e8662b;
+}
+
+.bannierename img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-top: 0.5rem;
+  -webkit-animation-name: blockbanniere;
+          animation-name: blockbanniere;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes blockbanniere {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(200%);
+            transform: translateX(200%);
+  }
+}
+
+@keyframes blockbanniere {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(200%);
+            transform: translateX(200%);
+  }
+}
+
+.bannierename h1 {
+  margin-top: 3rem;
+  margin-left: -3rem;
+  font-size: 3rem;
+  color: white;
+  -webkit-animation-name: blockbanniereText;
+          animation-name: blockbanniereText;
+  -webkit-animation-duration: 6s;
+          animation-duration: 6s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes blockbanniereText {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes blockbanniereText {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
 /*# sourceMappingURL=style.css.map */
