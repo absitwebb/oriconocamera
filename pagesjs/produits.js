@@ -26,7 +26,8 @@ const RecupProduits = async () => {
     .then((data) => {
       ProduitsData = data;
       console.log(ProduitsData);
-    });
+    })
+    .catch((err) => console.log("ereur:" + err));
 };
 // récupère et affiche chaque produit
 const ProduitsLists = async () => {
@@ -34,6 +35,7 @@ const ProduitsLists = async () => {
   document.querySelector(".affichProduits").innerHTML = ProduitsData.map(
     (Produit) => `
   <div id="cam ${Produit._id}" class="bloc-produit">
+  <a href="/valid-produit.html?id=${Produit._id}">
    <h3 class="bloc-produit_title">${Produit.name}</h3>
    <img class="bloc-produit_img" src="${Produit.imageUrl}" alt="image produit ${
       Produit.name
@@ -42,10 +44,9 @@ const ProduitsLists = async () => {
    <p class="bloc-produit_price">${Produit.price
      .toString()
      .replace(/0+$/, "")} Euros </p>
-     <button id="${
-       Produit._id
-     }" class="bloc-produit_buttonenvoie"> voir Le produit</button>
-  </div>
+     
+ </a>
+     </div>
   `
     // join pour supprimer virgule entre chaque affichage de produit
   ).join("");

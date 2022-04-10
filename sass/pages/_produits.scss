@@ -20,23 +20,46 @@
 .affichProduits {
   display: flex;
   flex-direction: column;
+  background: $colorsecondary;
+  align-items: center;
 }
 .bloc-produit {
-  max-width: 100%;
-  min-height: auto;
-  justify-content: center;
-  background: $colorsecondary;
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  max-height: auto;
+  background: rgb(181, 179, 179);
+
+  border-radius: 15px 15px 0px 0px;
+  margin-top: 3rem;
+
   &_title {
-    color: white;
+    color: black;
     font-size: 2.8rem;
   }
   &_img {
     display: flex;
+    max-width: 90%;
     max-height: 200px;
     object-fit: cover;
   }
   &_descript {
-    color: white;
+    color: black;
     font-size: 2rem;
+    margin-left: 1rem;
+  }
+  &_price {
+    border: 1px $colorprimary solid;
+    border-radius: 10px;
+    background: $colorprimary;
+    padding: 0.8rem;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
