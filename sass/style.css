@@ -705,12 +705,6 @@ nav a:hover {
   }
 }
 
-.affichProduitvalid {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .container-produit {
   display: -webkit-box;
   display: -ms-flexbox;
