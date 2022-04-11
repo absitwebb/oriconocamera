@@ -47,9 +47,18 @@ const affichProduitValid = async () => {
   </select>
   </div>
   <!--________________button valider_______________________-->
-  <button id="${ProduitValidData._id}" class="buttonValid">Valider</button>
+  <button id="${
+    ProduitValidData._id
+  }" class="buttonValid">Ajouter au panier</button>
   </div>
   </div>
   `;
+  // on récupère les valeurs pour la liste déroulante
+  let select = document.getElementById("lentilles");
+  ProduitValidData.lenses.forEach((lentilles) => {
+    let listOptions = document.createElement("option");
+    listOptions.innerHTML = lentilles;
+    select.appendChild(listOptions);
+  });
 };
 affichProduitValid();

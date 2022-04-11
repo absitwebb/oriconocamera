@@ -38,6 +38,10 @@ nav {
     font-family: sans-serif; /* police d'écriture */
     font-size: 13px; /* taille du texte */
     transition: 0.5s; /* temps de transition lors du hover : une demi seconde */
+    i {
+      font-size: 1.5rem;
+      color: $colorprimary;
+    }
   }
 }
 nav a:hover {
