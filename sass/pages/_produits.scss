@@ -10,10 +10,10 @@
   }
   h1 {
     margin-top: 3rem;
-    margin-left: -5rem;
+    margin-left: -8rem;
     font-size: 3rem;
     color: white;
-    @include blockbanniereText();
+    @include blockbanniereText(mobile);
   }
 }
 
@@ -85,4 +85,6 @@
       margin: 2rem;
     }
   }
+  @include blockbanniere(desktop);
+  @include blockbanniereText(desktop);
 }

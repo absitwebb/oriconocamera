@@ -41,6 +41,7 @@ nav {
     i {
       font-size: 1.5rem;
       color: $colorprimary;
+      opacity: 0;
     }
   }
 }
@@ -52,6 +53,12 @@ nav a:hover {
   display: none;
 }
 
+/* responsive tablet*/
+@include screen-size(tablet) {
+  nav a i {
+    opacity: 1;
+  }
+}
 /* responsive desktop*/
 @include screen-size(desktop) {
   nav {

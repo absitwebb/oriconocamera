@@ -136,7 +136,7 @@
       }
       100% {
         opacity: 1;
-        transform: translatex(+200px);
+        transform: translatex(+300px);
       }
     }
   }
@@ -145,7 +145,7 @@
   animation-fill-mode: forwards;
 }
 // mixins pour responsive animation bloc bannière text
-@mixin blockbanniereText() {
+@mixin blockbanniereText($size) {
   @keyframes blockbanniereText {
     0% {
       opacity: 0;

@@ -1,7 +1,7 @@
 let ProduitValidData = [];
-let ImgbanniereCommande = "public/img/commander.png";
+
 //variable img bannière
-let ImgbanniereVintage = "public/img/camera-vintage.png";
+let ImgbanniereCommande = "public/img/commander.png";
 //affiche img et text dans bannière vintage
 affichImgBanniere(ImgbanniereCommande);
 AffichTextBanniere("Commander");
