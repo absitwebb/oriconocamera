@@ -48,6 +48,45 @@
       <section>
         <div class="bannierename"></div>
       </section>
+      <!--______________section panier____________-->
+      <section id="panier" class="section-panier">
+        <!--______________block panier____________-->
+        <div id="blocPanier-title" class="blocPanier-title">
+          <h2 id="title-panier">
+            Veuillez ajoutez des produits au panier <br />
+            Pas de produit
+          </h2>
+        </div>
+        <!--_____________ panier fiche____________-->
+        <div id="panier-fiche" class="">
+          <div id="injectJS">
+            <div id="panier-produit">
+              <!--_____________block 1 image____________-->
+              <div id="panier-produit_image">
+                <img src="/public/img/panier.png" alt="image panier" />
+              </div>
+              <!--_____________ block 2 produit___________-->
+              <div id="panier-produit_ref">
+                <h2>produit</h2>
+                <p>Appareil</p>
+                <p>0 E</p>
+                <p>Ref:000000</p>
+                <p>en stock</p>
+              </div>
+              <!--_____________ block 3 change produit___________-->
+              <div id="panier-produit_change">
+                <div class="change-select">
+                  <button class="bouton-val">-</button>
+                  <span class="produit-quantité">0</span>
+                  <button class="bouton-val">+</button>
+                </div>
+                <div class="change-price"<p>0 E</p></div>
+                <div><i class="fas fa-trash-alt"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="./pagesjs/fonctions.js"></script>
     <script src="./pagesjs/panier.js"></script>

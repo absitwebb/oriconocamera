@@ -858,4 +858,157 @@ nav a:hover {
     height: 100px;
   }
 }
+
+.section-panier {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 5rem;
+}
+
+#panier-fiche {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 5rem;
+}
+
+#panier-produit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px black solid;
+  -webkit-box-shadow: 6px 6px 0px black;
+          box-shadow: 6px 6px 0px black;
+}
+
+#panier-produit_image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 35%;
+  height: 100%;
+  height: 100%;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+#panier-produit_image img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#panier-produit_ref {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 30%;
+  margin-left: 7rem;
+  border: 1px black solid;
+}
+
+#panier-produit_ref h2 {
+  font-size: 3rem;
+  padding-bottom: 2rem;
+}
+
+#panier-produit_ref p {
+  font-size: 2rem;
+  padding-bottom: 2rem;
+}
+
+#panier-produit_change {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30%;
+  margin-left: 7rem;
+  margin-right: 2rem;
+}
+
+#panier-produit_change .change-select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#panier-produit_change .change-select button {
+  width: 30px;
+  height: 40px;
+  background: #eeecec;
+  font-size: 2.5rem;
+}
+
+#panier-produit_change .change-select span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #c5c2c2;
+  font-size: 3rem;
+}
+
+#panier-produit_change .change-price {
+  margin-top: 2rem;
+  font-size: 2.5rem;
+}
+
+#panier-produit_change i {
+  font-size: 2.8rem;
+  color: #cf8e0b;
+  margin-top: 2rem;
+}
 /*# sourceMappingURL=style.css.map */
