@@ -92,3 +92,42 @@
     }
   }
 }
+
+#panier-recap {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  max-height: 100%;
+  border: 1px black solid;
+  box-shadow: 6px 6px 0px black;
+  margin-left: 2rem;
+  .title-recap {
+    font-size: 3rem;
+    color: $colorprimary;
+    margin-bottom: 2rem;
+  }
+  .panier-recap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  .trait-design {
+    width: 80%;
+    border-bottom: 3px solid $colorprimary;
+    margin-bottom: 2rem;
+  }
+  #suitecommande {
+    width: 50%;
+    height: 50%;
+
+    font-size: 2.5rem;
+    background-color: $colorprimary;
+    color: white;
+    cursor: pointer;
+  }
+  #suitecommande:hover {
+    background-color: $colorsecondary;
+  }
+}

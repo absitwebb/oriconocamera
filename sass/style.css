@@ -1011,4 +1011,59 @@ nav a:hover {
   color: #cf8e0b;
   margin-top: 2rem;
 }
+
+#panier-recap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 40%;
+  max-height: 100%;
+  border: 1px black solid;
+  -webkit-box-shadow: 6px 6px 0px black;
+          box-shadow: 6px 6px 0px black;
+  margin-left: 2rem;
+}
+
+#panier-recap .title-recap {
+  font-size: 3rem;
+  color: #e8662b;
+  margin-bottom: 2rem;
+}
+
+#panier-recap .panier-recap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+#panier-recap .trait-design {
+  width: 80%;
+  border-bottom: 3px solid #e8662b;
+  margin-bottom: 2rem;
+}
+
+#panier-recap #suitecommande {
+  width: 50%;
+  height: 50%;
+  font-size: 2.5rem;
+  background-color: #e8662b;
+  color: white;
+  cursor: pointer;
+}
+
+#panier-recap #suitecommande:hover {
+  background-color: #394d60;
+}
 /*# sourceMappingURL=style.css.map */
