@@ -871,7 +871,6 @@ nav a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-left: 5rem;
 }
 
 #panier-fiche {
@@ -1065,5 +1064,47 @@ nav a:hover {
 
 #panier-recap #suitecommande:hover {
   background-color: #394d60;
+}
+
+.formContact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+  max-height: 100%;
+  background-color: #394d60;
+  color: white;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+}
+
+.formContact h2 {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.formContact .champs {
+  font-size: 2rem;
+  margin-left: 3rem;
+}
+
+.formContact .champs input {
+  height: 3rem;
+  width: 30rem;
+  border: 1px black solid;
+  -webkit-box-shadow: 4px 4px 0px black;
+          box-shadow: 4px 4px 0px black;
+}
+
+.formContact .Name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 /*# sourceMappingURL=style.css.map */
