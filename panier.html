@@ -103,7 +103,7 @@
               <p id="priceTtc">0</p>
             </div>
             <div>
-              <a id="suitecommande" class="panier-recap" href="#"
+              <a id="suitecommande" class="buttonsuite" href="#"
                 >continuer <i class="fas fa-chevron-right"></i
               ></a>
             </div>
@@ -114,7 +114,7 @@
           <form id="formContactid" action="post">
             <h2>Informations personnelles</h2>
             <!--____________________Nom prénom____________________-->
-            <div class="Name">
+            <div class="formContact_Name">
               <!--_____________prénom___________-->
               <div class="champs">
                 <label for="prenom">Prénom</label>
@@ -128,6 +128,29 @@
                 <span id="errorNom"> </span>
               </div>
             </div>
+            <!--_________________adresse client__________________-->
+            <div class="formContact_Address">
+              <!--_____________adresse___________-->
+              <div class="champs">
+                <label for="adresse">Adresse</label>
+                <input id="adresse" type="text" />
+                <span id="errorAddress"> </span>
+              </div>
+              <!--_____________ville___________-->
+              <div class="champs">
+                <label for="ville">Ville</label>
+                <input id="ville" type="text" />
+                <span id="errorCity"> </span>
+              </div>
+              <!--_____________adresse___________-->
+              <div class="champs">
+                <label for="email">Email</label>
+                <input id="Email" type="text" />
+                <span id="errorEmail"> </span>
+              </div>
+            </div>
+            <!--_____________bouton___________-->
+            <button class="buttonsuite" type="submit">Commander</button>
           </form>
         </div>
       </section>
