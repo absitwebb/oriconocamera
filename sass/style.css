@@ -1035,8 +1035,12 @@ nav a:hover {
 
 #panier-produit_change i {
   font-size: 2.8rem;
-  color: #cf8e0b;
+  color: gray;
   margin-top: 2rem;
+}
+
+#panier-produit_change i:hover {
+  color: #c9470f;
 }
 
 #panier-recap {

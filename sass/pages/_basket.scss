@@ -96,8 +96,11 @@
     }
     i {
       font-size: 2.8rem;
-      color: rgb(207, 142, 11);
+      color: gray;
       margin-top: 2rem;
+    }
+    i:hover {
+      color: rgb(201, 71, 15);
     }
   }
 }
