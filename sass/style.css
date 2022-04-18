@@ -1053,16 +1053,18 @@ nav a:hover {
   margin-bottom: 2rem;
 }
 
-#panier-recap #suitecommande {
-  width: 50%;
-  height: 50%;
+.buttonsuite {
+  width: 25%;
+  height: 40px;
+  padding-left: 2rem;
+  padding-right: 2rem;
   font-size: 2.5rem;
   background-color: #e8662b;
   color: white;
   cursor: pointer;
 }
 
-#panier-recap #suitecommande:hover {
+.buttonsuite:hover {
   background-color: #394d60;
 }
 
@@ -1100,11 +1102,22 @@ nav a:hover {
           box-shadow: 4px 4px 0px black;
 }
 
-.formContact .Name {
+.formContact_Name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.formContact_Address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 3rem;
 }
 /*# sourceMappingURL=style.css.map */
