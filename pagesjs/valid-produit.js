@@ -22,7 +22,6 @@ const RecupProduitValid = async () => {
     .catch((err) => console.log("ereur:" + err));
 };
 // récupère et affiche le produit selectionné
-
 const affichProduitValid = async () => {
   await RecupProduitValid();
   document.querySelector(".affichProduits").innerHTML = `
@@ -60,5 +59,39 @@ const affichProduitValid = async () => {
     listOptions.innerHTML = lentilles;
     select.appendChild(listOptions);
   });
+  ajoutPanier(ProduitValidData);
 };
+
 affichProduitValid();
+//__________ on commence l'ajout dans le localstorage_____________
+const ajoutPanier = () => {
+  let buttonStorage = document.getElementById(ProduitValidData._id);
+  console.log(buttonStorage);
+  buttonStorage.addEventListener("click", () => {
+    // on verifie si il y a des produits dans le localstorage
+    let produitTable = JSON.parse(localStorage.getItem("produit"));
+    // on récupère l'option lentilles sélectionnée
+    let selectopt = document.getElementById("lentilles");
+    console.log(selectopt);
+    console.log(produitTable);
+
+    //on rajoute dans l'objet ProduitValidData deux éléments
+    // le choix de la lentille et la quantité
+    const fusionproduitlentilles = Object.assign({}, ProduitValidData, {
+      lentillechoix: `${selectopt.value}`,
+      quantite: 1,
+    });
+    console.log(fusionproduitlentilles);
+
+    // si le tableau est vide
+    if (produitTable == null) {
+      // on crée un tableau vide
+      produitTable = [];
+      //on met dans le tableau le produit et option sélectionnée
+      produitTable.push(fusionproduitlentilles);
+      console.log(produitTable);
+      //on stock  dans le localstorage le produit sous forme de string
+      localStorage.setItem("produit", JSON.stringify(produitTable));
+    }
+  });
+};
