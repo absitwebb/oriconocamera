@@ -19,6 +19,7 @@ const basketaffich = async () => {
 
     // on cache le formulaire
     formContact.classList.add("affichcontactnone");
+    //on affiche le formulaire lorsqu'on clique sur le bouton continuer du récapitulatif
     suitecommande.addEventListener("click", () => {
       formContact.classList.remove("affichcontactnone");
     });
