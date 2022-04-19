@@ -72,8 +72,6 @@ const ajoutPanier = () => {
     let produitTable = JSON.parse(localStorage.getItem("produit"));
     // on récupère l'option lentilles sélectionnée
     let selectopt = document.getElementById("lentilles");
-    console.log(selectopt);
-    console.log(produitTable);
 
     //on rajoute dans l'objet ProduitValidData deux éléments
     // le choix de la lentille et la quantité
@@ -94,16 +92,17 @@ const ajoutPanier = () => {
       //on stock  dans le localstorage le produit sous forme de string
       localStorage.setItem("produit", JSON.stringify(produitTable));
     }
-    // si le tableau n'est pas vide
+    // ____________si le tableau n'est pas vide___________________________
     else if (produitTable != null) {
+      //--------première boucle----------------
       for (i = 0; i < produitTable.length; i++) {
-        // on verifie si le produit dans le tableau est égal au produit
-        // qu'il y à dans la boucle for ainsi que l'option lentilles
+        // _______on verifie si le produit dans le tableau est égal au produit
+        //qu'il y à dans la boucle for ainsi que l'option lentilles
         if (
           produitTable[i]._id == ProduitValidData._id &&
           produitTable[i].lentillechoix == selectopt.value
         ) {
-          // si le produit est le même on augmente la quantié
+          // si le produit est le même on augmente la quantité____________________
           return (
             produitTable[i].quantite++,
             console.log("quantite++"),
@@ -111,6 +110,21 @@ const ajoutPanier = () => {
             // ici juste la quantité sera modifié
             localStorage.setItem("produit", JSON.stringify(produitTable)),
             // on le récupère du localstorage et le transforme en objet (parse) pour pouvoir l'afficher dans la page
+            (produitTable = JSON.parse(localStorage.getItem("produit")))
+          );
+        }
+      }
+      //--------deuxième boucle----------------
+      // on vérifie si c'est le même produit mais cette fois avec une lentille différente
+      for (i = 0; i < produitTable.length; i++) {
+        if (
+          produitTable[i]._id == ProduitValidData._id &&
+          produitTable[i].lentillechoix != selectopt.value
+        ) {
+          return (
+            console.log("nouveau"),
+            produitTable.push(fusionproduitlentilles),
+            localStorage.setItem("produit", JSON.stringify(produitTable)),
             (produitTable = JSON.parse(localStorage.getItem("produit")))
           );
         }
