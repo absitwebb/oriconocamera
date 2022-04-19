@@ -90,8 +90,33 @@ const ajoutPanier = () => {
       //on met dans le tableau le produit et option sélectionnée
       produitTable.push(fusionproduitlentilles);
       console.log(produitTable);
+
       //on stock  dans le localstorage le produit sous forme de string
       localStorage.setItem("produit", JSON.stringify(produitTable));
     }
+    // si le tableau n'est pas vide
+    else if (produitTable != null) {
+      for (i = 0; i < produitTable.length; i++) {
+        // on verifie si le produit dans le tableau est égal au produit
+        // qu'il y à dans la boucle for ainsi que l'option lentilles
+        if (
+          produitTable[i]._id == ProduitValidData._id &&
+          produitTable[i].lentillechoix == selectopt.value
+        ) {
+          // si le produit est le même on augmente la quantié
+          return (
+            produitTable[i].quantite++,
+            console.log("quantite++"),
+            // on modifie le produit dans le localstorage et le transforme avec stringify
+            // ici juste la quantité sera modifié
+            localStorage.setItem("produit", JSON.stringify(produitTable)),
+            // on le récupère du localstorage et le transforme en objet (parse) pour pouvoir l'afficher dans la page
+            (produitTable = JSON.parse(localStorage.getItem("produit")))
+          );
+        }
+      }
+    }
   });
+  // on va chercher la nouvelle valeur du tableau du localstorage
+  return (produitTable = JSON.parse(localStorage.getItem("produit")));
 };
