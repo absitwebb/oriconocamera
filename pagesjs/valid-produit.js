@@ -1,5 +1,6 @@
 let ProduitValidData = [];
 let recNcarte = "";
+
 //variable img bannière
 let ImgbanniereCommande = "public/img/commander.png";
 //affiche img et text dans bannière vintage
@@ -86,12 +87,15 @@ const ajoutPanier = () => {
     if (produitTable == null) {
       // on crée un tableau vide
       produitTable = [];
+
       //on met dans le tableau le produit et option sélectionnée
       produitTable.push(fusionproduitlentilles);
-      console.log(produitTable);
 
       //on stock  dans le localstorage le produit sous forme de string
       localStorage.setItem("produit", JSON.stringify(produitTable));
+      //---------essai-----------
+
+      ajoutpanierQauntiteTotal();
     }
     // ____________si le tableau n'est pas vide___________________________
     else if (produitTable != null) {
@@ -111,7 +115,8 @@ const ajoutPanier = () => {
             // ici juste la quantité sera modifié
             localStorage.setItem("produit", JSON.stringify(produitTable)),
             // on le récupère du localstorage et le transforme en objet (parse) pour pouvoir l'afficher dans la page
-            (produitTable = JSON.parse(localStorage.getItem("produit")))
+            (produitTable = JSON.parse(localStorage.getItem("produit"))),
+            ajoutpanierQauntiteTotal()
           );
         }
       }
@@ -128,7 +133,8 @@ const ajoutPanier = () => {
             console.log("nouveau"),
             produitTable.push(fusionproduitlentilles),
             localStorage.setItem("produit", JSON.stringify(produitTable)),
-            (produitTable = JSON.parse(localStorage.getItem("produit")))
+            (produitTable = JSON.parse(localStorage.getItem("produit"))),
+            ajoutpanierQauntiteTotal()
           );
         }
       }

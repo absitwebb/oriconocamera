@@ -87,3 +87,5 @@ const basketaffich = async () => {
   }
 };
 basketaffich();
+// affiche la quantité total des produits dans le panier
+ajoutpanierQauntiteTotal();
