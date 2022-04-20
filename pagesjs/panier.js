@@ -3,6 +3,7 @@ let formContact = document.querySelector(".formContact");
 let suitecommande = document.getElementById("suitecommande");
 let blocPanierTitle = document.getElementById("blocPanier-title");
 let injectJS = document.getElementById("injectJS");
+
 //variable img bannière
 let ImgbanniereCommande = "public/img/panier.png";
 //affiche img et text dans bannière vintage
@@ -29,10 +30,11 @@ const basketaffich = async () => {
     blocPanierTitle.innerHTML = `<h2 id="titre-panier">Panier</h2>`;
     // on affiche les éléments du produit
 
-    console.log(addProduit);
-    injectJS.innerHTML = addProduit.map(
-      (produit) =>
-        `
+    injectJS.innerHTML = addProduit
+      .map(
+        (produit) =>
+          `
+           
             <div id="panier-produit">
      
               <!--_____________block 1 image____________-->
@@ -42,7 +44,7 @@ const basketaffich = async () => {
               <!--_____________ block 2 produit___________-->
               <div id="panier-produit_ref">
                 <h2> ${produit.name}</h2>
-                <p>${produit.lentillechoix}</p>
+                 <p>${produit.lentillechoix}</p>
                 <p>${produit.price.toString().replace(/00/, "")}€</p>
                 <p>Ref:<br/>${produit._id}</p>
                 <p>en stock</p>
@@ -51,28 +53,29 @@ const basketaffich = async () => {
               <div id="panier-produit_change">
                 <div class="change-select">
                   <button class="bouton-val" data-id="${produit._id} data-id='${
-          produit.lentillechoix
-        }" >-</button>
+            produit.lentillechoix
+          }" >-</button>
                   <span class="produit-quantité">${produit.quantite}</span>
                   <button class="bouton-val" data-id="${produit._id} data-id='${
-          produit.lentillechoix
-        }">+</button>
+            produit.lentillechoix
+          }">+</button>
                 </div>
                <!--____on calcule la quantité de produit avec le prix___________-->
                 <div class="change-price"><p>${
                   produit.quantite * produit.price.toString().replace(/00/, "")
                 }€</p></div>
-                <div><i class=" bouton-corbeille fas fa-trash-alt grisdata-id="${
+                <div><i class=" bouton-corbeille fas fa-trash-alt gris data-id="${
                   produit._id
-                } data-id='${produit.lentillechoix}" "></i></div>
-              </div>
+                } data-id="${produit.lentillechoix}"></i></div>
              
-            </div>
+             </div>
+                        </div>
           
 
 
     `
-    );
+      )
+      .join("");
 
     return;
     // sinon  pas de produits

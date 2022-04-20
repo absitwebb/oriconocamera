@@ -1,5 +1,5 @@
 let ProduitValidData = [];
-
+let recNcarte = "";
 //variable img bannière
 let ImgbanniereCommande = "public/img/commander.png";
 //affiche img et text dans bannière vintage
@@ -66,6 +66,7 @@ affichProduitValid();
 //__________ on commence l'ajout dans le localstorage_____________
 const ajoutPanier = () => {
   let buttonStorage = document.getElementById(ProduitValidData._id);
+
   console.log(buttonStorage);
   buttonStorage.addEventListener("click", () => {
     // on verifie si il y a des produits dans le localstorage
@@ -78,8 +79,8 @@ const ajoutPanier = () => {
     const fusionproduitlentilles = Object.assign({}, ProduitValidData, {
       lentillechoix: `${selectopt.value}`,
       quantite: 1,
+      Ncarte: recNcarte,
     });
-    console.log(fusionproduitlentilles);
 
     // si le tableau est vide
     if (produitTable == null) {
@@ -118,8 +119,9 @@ const ajoutPanier = () => {
       // on vérifie si c'est le même produit mais cette fois avec une lentille différente
       for (i = 0; i < produitTable.length; i++) {
         if (
-          produitTable[i]._id == ProduitValidData._id &&
-          produitTable[i].lentillechoix != selectopt.value
+          (produitTable[i]._id == ProduitValidData._id &&
+            produitTable[i].lentillechoix != selectopt.value) ||
+          produitTable[i]._id != ProduitValidData._id
         ) {
           return (
             console.log("nouveau"),

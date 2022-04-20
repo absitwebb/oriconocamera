@@ -906,6 +906,7 @@ nav a:hover {
   display: -ms-flexbox;
   display: flex;
   width: 80%;
+  height: 100%;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -928,6 +929,7 @@ nav a:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 3rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
