@@ -1,6 +1,6 @@
 //variable img bannière
 let ImgbanniereVintage = "public/img/camera-vintage.png";
-let panierBanniereQuantite = document.getElementById("panierBanniereQuantite");
+
 //affiche img et text dans bannière vintage
 // fonctions du fichier fonctions.js
 affichImgBanniere(ImgbanniereVintage);

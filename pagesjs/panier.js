@@ -52,13 +52,14 @@ const basketaffich = async () => {
               <!--_____________ block 3 change produit___________-->
               <div id="panier-produit_change">
                 <div class="change-select">
-                  <button class="bouton-val" data-id="${produit._id} data-id='${
-            produit.lentillechoix
-          }" >-</button>
+                  <button class="bouton-val" data-id="${
+                    produit._id
+                  }" data-lentille="${produit.lentillechoix}" >-</button>
                   <span class="produit-quantité">${produit.quantite}</span>
-                  <button class="bouton-val" data-id="${produit._id} data-id='${
-            produit.lentillechoix
-          }">+</button>
+                 
+                  <button class="bouton-plus" data-id="${
+                    produit._id
+                  }" data-lentille="${produit.lentillechoix}">+</button>
                 </div>
                <!--____on calcule la quantité de produit avec le prix___________-->
                 <div class="change-price"><p>${
@@ -66,17 +67,15 @@ const basketaffich = async () => {
                 }€</p></div>
                 <div><i class=" bouton-corbeille fas fa-trash-alt gris data-id="${
                   produit._id
-                } data-id="${produit.lentillechoix}"></i></div>
+                }" data-id="${produit.lentillechoix}"></i></div>
              
              </div>
                         </div>
-          
-
-
+         
     `
       )
       .join("");
-
+    buttonPlusQuantite();
     return;
     // sinon  pas de produits
   } else {
@@ -87,5 +86,42 @@ const basketaffich = async () => {
   }
 };
 basketaffich();
+
+// ajout produit avec le bouton +
+const buttonPlusQuantite = async (basketaffich) => {
+  await basketaffich;
+  // on recupère tous les boutons +
+  let plus = document.querySelectorAll(".bouton-plus");
+  //on fait une boucle pour écouter tous les boutons +
+  plus.forEach((Bplus) => {
+    Bplus.addEventListener("click", () => {
+      //on fait une boucle for pour chaque produit du tableau
+      for (i = 0; i < addProduit.length; i++) {
+        if (
+          //on compare si id et lentille son pareil entre localstorage et bouton plus
+          addProduit[i]._id == Bplus.dataset.id &&
+          addProduit[i].lentillechoix == Bplus.dataset.lentille
+        ) {
+          return (
+            addProduit[i].quantite++,
+            // on rajoute le produit dans localstorage
+            localStorage.setItem("produit", JSON.stringify(addProduit)),
+            // on affiche la nouvelle quantié dans la page
+            (document.querySelectorAll(".produit-quantité")[i].textContent =
+              addProduit[i].quantite),
+            //on affiche le nouveau prix dans la page
+            (document.querySelectorAll(".change-price")[i].textContent = `
+             ${
+               addProduit[i].quantite *
+               addProduit[i].price.toString().replace(/00/, "")
+             }€`),
+            // affiche la quantité total des produits dans le panier
+            ajoutpanierQauntiteTotal()
+          );
+        }
+      }
+    });
+  });
+};
 // affiche la quantité total des produits dans le panier
 ajoutpanierQauntiteTotal();

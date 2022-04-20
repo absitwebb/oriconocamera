@@ -13,6 +13,7 @@ function AffichTextBanniere(TextBanniere) {
 //--------------------------------------------------------
 // fonction pour ajouter la quantité total des produits
 // dans panier de la bannière
+let panierBanniereQuantite = document.getElementById("panierBanniereQuantite");
 function ajoutpanierQauntiteTotal() {
   // on va chercher les produits dans le localstorage
   let produitLocal = JSON.parse(localStorage.getItem("produit"));
@@ -22,8 +23,6 @@ function ajoutpanierQauntiteTotal() {
   // on fait une boucle pour chercher la quantité de produits
   // on met cette quantié dans un tableau
   if (produitLocal) {
-    // on supprime texte vide du panier
-
     produitLocal.forEach((appareil) => {
       appareilQauntiteTotal.push(appareil.quantite);
       // on supprimer la class panierbannierevide
@@ -38,7 +37,6 @@ function ajoutpanierQauntiteTotal() {
       )}`);
     });
   } else {
-    panierBanniereQuantite.classList.remove("panierbannierequantite");
-    panierBanniereQuantite.classList.add("panierbannierevide");
+    return (panierBanniereQuantite.textContent = `vide`);
   }
 }
