@@ -117,6 +117,7 @@ const ajoutPanier = () => {
       }
       //--------deuxième boucle----------------
       // on vérifie si c'est le même produit mais cette fois avec une lentille différente
+      // ou un id différent
       for (i = 0; i < produitTable.length; i++) {
         if (
           (produitTable[i]._id == ProduitValidData._id &&
@@ -136,3 +137,5 @@ const ajoutPanier = () => {
   // on va chercher la nouvelle valeur du tableau du localstorage
   return (produitTable = JSON.parse(localStorage.getItem("produit")));
 };
+//-----------afficher quantité panier dans bannière------------
+ajoutpanierQauntiteTotal();

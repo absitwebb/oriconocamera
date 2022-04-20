@@ -1,6 +1,6 @@
 //variable img bannière
 let ImgbanniereVintage = "public/img/camera-vintage.png";
-
+let panierBanniereQuantite = document.getElementById("panierBanniereQuantite");
 //affiche img et text dans bannière vintage
 // fonctions du fichier fonctions.js
 affichImgBanniere(ImgbanniereVintage);
@@ -14,7 +14,6 @@ const RecupProduits = async () => {
     .then((res) => res.json())
     .then((data) => {
       ProduitsData = data;
-      console.log(ProduitsData);
     })
     .catch((err) => console.log("ereur:" + err));
 };
@@ -41,3 +40,32 @@ const ProduitsLists = async () => {
   ).join("");
 };
 ProduitsLists();
+
+//-----------afficher quantité panier dans bannière------------
+// on va chercher les produits dans le localstorage
+function ajoutpanierQauntiteTotal() {
+  let produitLocal = JSON.parse(localStorage.getItem("produit"));
+  // on crée un tableau pour stocké la quantité de produits qu'on va trouver
+  let appareilQauntiteTotal = [];
+
+  // on fait une boucle pour chercher la quantité de produits
+  // on met cette quantié dans un tableau
+  if (produitLocal) {
+    produitLocal.forEach((appareil) => {
+      appareilQauntiteTotal.push(appareil.quantite);
+      // on supprimer la class panierbannierevide
+      // on ajout ou modifie la class de id panierbannierequantite
+      panierBanniereQuantite.classList.remove("panierbannierevide");
+      panierBanniereQuantite.classList.add("panierbannierequantite");
+      // on affiche le resultat du tableau dans la page
+      // eval et le + dans join permet d'additionner le tableau
+      panierBanniereQuantite.textContent = `${eval(
+        appareilQauntiteTotal.join("+")
+      )}`;
+    });
+  } else {
+    panierBanniereQuantite.classList.remove("panierbannierequantite");
+    panierBanniereQuantite.classList.add("panierbannierevide");
+  }
+}
+ajoutpanierQauntiteTotal();

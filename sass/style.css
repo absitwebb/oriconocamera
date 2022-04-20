@@ -634,6 +634,30 @@ nav a:hover {
   }
 }
 
+.bannierename a {
+  position: absolute;
+  margin-left: 70%;
+  margin-top: 2rem;
+}
+
+.bannierename a i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.bannierename a span {
+  font-size: 2rem;
+}
+
+.panierbannierequantite {
+  color: white;
+  background-color: #394d60;
+}
+
+.panierbannierevide {
+  display: none;
+}
+
 .affichProduits {
   display: -webkit-box;
   display: -ms-flexbox;
