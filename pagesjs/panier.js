@@ -150,9 +150,33 @@ const buttonMinQuantite = async (basketaffich) => {
             //on supprime le produit du localstorage
             localStorage.removeItem("produit"),
             //on recharche la page
-            (location.href = "panier.html"),
-            console.log("moins")
+            (location.href = "panier.html")
           );
+        }
+        if (addProduit[i].quantite == 1 && totalAddProduit != 1) {
+          // splice permet de supprimer un produit du tableau
+          addProduit.splice(i, 1);
+          localStorage.setItem("produit", JSON.stringify(addProduit));
+          (location.href = "panier.html"), console.log("moins");
+        }
+        if (
+          addProduit[i]._id == negat.dataset.id &&
+          addProduit[i].lentillechoix == negat.dataset.lentille
+        ) {
+          addProduit[i].quantite--,
+            localStorage.setItem(
+              "produit",
+              JSON.stringify(addProduit),
+              (document.querySelectorAll(".produit-quantité")[i].textContent =
+                addProduit[i].quantite),
+              //on affiche le nouveau prix dans la page
+              (document.querySelectorAll(".change-price")[i].textContent = `
+             ${
+               addProduit[i].quantite *
+               addProduit[i].price.toString().replace(/00/, "")
+             }€`),
+              console.log("moins--")
+            );
         }
       }
     });
