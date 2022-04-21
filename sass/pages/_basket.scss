@@ -4,7 +4,7 @@
   width: 100%;
   flex-direction: column;
 }
-
+//________ titre entête panier___________
 .blocPanier-title {
   border: 1px black solid;
   padding: 1rem;
@@ -15,6 +15,7 @@
   box-shadow: 6px 6px 0px black;
   color: white;
 }
+// container produit et récapitulatif
 #panier-fiche {
   display: flex;
   width: 80%;
@@ -24,7 +25,7 @@
   margin-top: 5rem;
 }
 
-//____ block du produit selectionné______
+//_______container des 3 blocs du produit selectionné______
 #panier-produit {
   display: flex;
   width: 100%;
@@ -35,15 +36,12 @@
   align-items: center;
   border: 1px black solid;
   box-shadow: 6px 6px 0px black;
+  //_____________ bloc1 image____________
   &_image {
     display: flex;
-    width: 35%;
+    width: 45%;
     height: 100%;
-
-    height: 100%;
-    margin-left: 2rem;
-    margin-right: 2rem;
-
+    padding: 1rem;
     img {
       display: flex;
 
@@ -52,38 +50,47 @@
       object-fit: cover;
     }
   }
+  //_____________ bloc2 ref produit____________
+
   &_ref {
     display: flex;
     flex-direction: column;
     width: 40%;
 
-    margin-left: 7rem;
+    padding-left: 1.5rem;
     border: 1px black solid;
     h2 {
       font-size: 3rem;
       padding-bottom: 2rem;
     }
+
     p {
-      font-size: 2rem;
+      font-size: 2.1rem;
       padding-bottom: 2rem;
     }
   }
+  //_____________ bloc3 changer produit affichage prix et poubelle____________
+
   &_change {
     display: flex;
     flex-direction: column;
-
     align-items: center;
     width: 30%;
     margin-left: 7rem;
     margin-right: 2rem;
+    //_____bloc pour changer quantié produit_________
     .change-select {
       display: flex;
       flex-direction: row;
       button {
         width: 30px;
         height: 40px;
-        background: rgb(238, 236, 236);
+        background: $colorsecondary;
         font-size: 2.5rem;
+        color: white;
+      }
+      button:active {
+        background: $colorprimary;
       }
       span {
         display: flex;
@@ -95,10 +102,12 @@
         font-size: 3rem;
       }
     }
+    //_______bloc affichage prix_____________
     .change-price {
       margin-top: 2rem;
       font-size: 2.5rem;
     }
+    //_______bloc poubelle_____________
     i {
       font-size: 2.8rem;
       color: gray;

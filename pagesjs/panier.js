@@ -45,9 +45,11 @@ const basketaffich = async () => {
               <div id="panier-produit_ref">
                 <h2> ${produit.name}</h2>
                  <p>${produit.lentillechoix}</p>
-                <p>${produit.price.toString().replace(/00/, "")}€</p>
+                <p class="CprimaryText">${produit.price
+                  .toString()
+                  .replace(/00/, "")}€</p>
                 <p>Ref:<br/>${produit._id}</p>
-                <p>en stock</p>
+                <p class="ColorGreen">en stock</p>
               </div>
               <!--_____________ block 3 change produit___________-->
               <div id="panier-produit_change">
