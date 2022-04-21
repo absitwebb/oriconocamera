@@ -54,7 +54,7 @@ const basketaffich = async () => {
               <!--_____________ block 3 change produit___________-->
               <div id="panier-produit_change">
                 <div class="change-select">
-                  <button class="bouton-val" data-id="${
+                  <button class="bouton-moins" data-id="${
                     produit._id
                   }" data-lentille="${produit.lentillechoix}" >-</button>
                   <span class="produit-quantité">${produit.quantite}</span>
@@ -77,8 +77,12 @@ const basketaffich = async () => {
     `
       )
       .join("");
+    // bouton + pour rajouter produit
     buttonPlusQuantite();
+    // bouton minimum quantité
+    buttonMinQuantite();
     return;
+
     // sinon  pas de produits
   } else {
     formContact.classList.add("affichcontactnone");
@@ -87,9 +91,10 @@ const basketaffich = async () => {
     });
   }
 };
+// fonction pour afficher le produit
 basketaffich();
 
-// ajout produit avec le bouton +
+// fonction pour ajout produit avec le bouton +
 const buttonPlusQuantite = async (basketaffich) => {
   await basketaffich;
   // on recupère tous les boutons +
@@ -127,3 +132,29 @@ const buttonPlusQuantite = async (basketaffich) => {
 };
 // affiche la quantité total des produits dans le panier
 ajoutpanierQauntiteTotal();
+
+//fonction pour supprimer si juste 1 produit dans le panier
+const buttonMinQuantite = async (basketaffich) => {
+  await basketaffich;
+  let moins = document.querySelectorAll(".bouton-moins");
+
+  moins.forEach((negat) => {
+    negat.addEventListener("click", () => {
+      let totalAddProduit = addProduit.length;
+      for (i = 0; i < totalAddProduit; i++) {
+        console.log(totalAddProduit);
+        // si la quantité dans produit est égal à 1
+        // et si le totale de produits dans le localstorage est égal à 1
+        if (addProduit[i].quantite == 1 && totalAddProduit == 1) {
+          return (
+            //on supprime le produit du localstorage
+            localStorage.removeItem("produit"),
+            //on recharche la page
+            (location.href = "panier.html"),
+            console.log("moins")
+          );
+        }
+      }
+    });
+  });
+};
