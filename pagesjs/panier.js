@@ -143,7 +143,7 @@ const buttonMinQuantite = async (basketaffich) => {
       let totalAddProduit = addProduit.length;
       for (i = 0; i < totalAddProduit; i++) {
         console.log(totalAddProduit);
-        // si la quantité dans produit est égal à 1
+        // si la quantité dans produit est égal à 1---------------------
         // et si le totale de produits dans le localstorage est égal à 1
         if (addProduit[i].quantite == 1 && totalAddProduit == 1) {
           return (
@@ -153,12 +153,23 @@ const buttonMinQuantite = async (basketaffich) => {
             (location.href = "panier.html")
           );
         }
-        if (addProduit[i].quantite == 1 && totalAddProduit != 1) {
+        //si la quantité dans produit est égal à 1----------------------
+        // et si il y à plusieurs produits
+        // et que si produit du localstorage est égal au produit sur lequel on a cliqué
+        // et si l'option lentille du produit du localstorage est égal à l'option lentille au produit sur lequel on a cliqué
+        if (
+          addProduit[i].quantite == 1 &&
+          totalAddProduit != 1 &&
+          addProduit[i]._id == negat.dataset.id &&
+          addProduit[i].lentillechoix == negat.dataset.lentille
+        ) {
           // splice permet de supprimer un produit du tableau
           addProduit.splice(i, 1);
           localStorage.setItem("produit", JSON.stringify(addProduit));
           (location.href = "panier.html"), console.log("moins");
         }
+        // si produit du localstorage est égal au produit sur lequel on a cliqué
+        // et si l'option lentille du produit du localstorage est égal à l'option lentille au produit sur lequel on a cliqué
         if (
           addProduit[i]._id == negat.dataset.id &&
           addProduit[i].lentillechoix == negat.dataset.lentille

@@ -68,7 +68,6 @@ affichProduitValid();
 const ajoutPanier = () => {
   let buttonStorage = document.getElementById(ProduitValidData._id);
 
-  console.log(buttonStorage);
   buttonStorage.addEventListener("click", () => {
     // on verifie si il y a des produits dans le localstorage
     let produitTable = JSON.parse(localStorage.getItem("produit"));
@@ -101,7 +100,7 @@ const ajoutPanier = () => {
     else if (produitTable != null) {
       //--------première boucle----------------
       for (i = 0; i < produitTable.length; i++) {
-        // _______on verifie si le produit dans le tableau est égal au produit
+        // _______on verifie si le produit dans le tableau (localstorage) est égal au produit (selectionné)
         //qu'il y à dans la boucle for ainsi que l'option lentilles
         if (
           produitTable[i]._id == ProduitValidData._id &&
@@ -130,7 +129,6 @@ const ajoutPanier = () => {
           produitTable[i]._id != ProduitValidData._id
         ) {
           return (
-            console.log("nouveau"),
             produitTable.push(fusionproduitlentilles),
             localStorage.setItem("produit", JSON.stringify(produitTable)),
             (produitTable = JSON.parse(localStorage.getItem("produit"))),
