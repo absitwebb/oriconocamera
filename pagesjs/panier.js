@@ -3,24 +3,24 @@ let formContact = document.querySelector(".formContact");
 let suitecommande = document.getElementById("suitecommande");
 let blocPanierTitle = document.getElementById("blocPanier-title");
 let injectJS = document.getElementById("injectJS");
-
+//------------------------------------------------------------
 //variable img bannière
 let ImgbanniereCommande = "public/img/panier.png";
 //affiche img et text dans bannière vintage
 affichImgBanniere(ImgbanniereCommande);
 AffichTextBanniere("Votre panier");
-
+// --------------------------afficher produit dans panier -------------------------------
 //on va chercher dans le localstorage le produit
 // on le transforme en objet (parse)
 let addProduit = JSON.parse(localStorage.getItem("produit"));
 
 // on vérifie si il y à un produit
 const basketaffich = async () => {
-  // si addProduit est vrai
+  // ___________si addProduit est vrai (si produit dans le tableau)_______________)
   if (addProduit) {
     await addProduit;
 
-    // on cache le formulaire
+    // _______________________on cache le formulaire______________________________________
     formContact.classList.add("affichcontactnone");
     //on affiche le formulaire lorsqu'on clique sur le bouton continuer du récapitulatif
     suitecommande.addEventListener("click", () => {
@@ -29,13 +29,12 @@ const basketaffich = async () => {
     // si produit dans le panier on chande de titre
     blocPanierTitle.innerHTML = `<h2 id="titre-panier">Panier</h2>`;
     // on affiche les éléments du produit
-
+    //_______________________on injecte le prduit dans page html________________________
     injectJS.innerHTML = addProduit
       .map(
         (produit) =>
           `
-           
-            <div id="panier-produit">
+             <div id="panier-produit">
      
               <!--_____________block 1 image____________-->
               <div id="panier-produit_image">
@@ -67,23 +66,25 @@ const basketaffich = async () => {
                 <div class="change-price"><p>${
                   produit.quantite * produit.price.toString().replace(/00/, "")
                 }€</p></div>
-                <div><i class=" bouton-corbeille fas fa-trash-alt gris data-id="${
+                <div><i class=" bouton-poubelle fas fa-trash-alt gris" data-id="${
                   produit._id
-                }" data-id="${produit.lentillechoix}"></i></div>
+                }" data-lentille="${produit.lentillechoix}"></i></div>
              
              </div>
                         </div>
-         
-    `
+             `
       )
       .join("");
-    // bouton + pour rajouter produit
+    // fonction supprimer produit dans panier avec la poubelle
+    removeProduit();
+    // fonction bouton + pour rajouter produit
     buttonPlusQuantite();
-    // bouton minimum quantité
+    // fonction bouton minimum et supprimer quantité
     buttonMinQuantite();
+    refSomProduits();
     return;
 
-    // sinon  pas de produits
+    //__________________ sinon pas de produits_____________________________________
   } else {
     formContact.classList.add("affichcontactnone");
     suitecommande.addEventListener("click", () => {
@@ -91,105 +92,38 @@ const basketaffich = async () => {
     });
   }
 };
-// fonction pour afficher le produit
+// fonction pour afficher le produit_________________
 basketaffich();
 
-// fonction pour ajout produit avec le bouton +
-const buttonPlusQuantite = async (basketaffich) => {
-  await basketaffich;
-  // on recupère tous les boutons +
-  let plus = document.querySelectorAll(".bouton-plus");
-  //on fait une boucle pour écouter tous les boutons +
-  plus.forEach((Bplus) => {
-    Bplus.addEventListener("click", () => {
-      //on fait une boucle for pour chaque produit du tableau
-      for (i = 0; i < addProduit.length; i++) {
-        if (
-          //on compare si id et lentille son pareil entre localstorage et bouton plus
-          addProduit[i]._id == Bplus.dataset.id &&
-          addProduit[i].lentillechoix == Bplus.dataset.lentille
-        ) {
-          return (
-            addProduit[i].quantite++,
-            // on rajoute le produit dans localstorage
-            localStorage.setItem("produit", JSON.stringify(addProduit)),
-            // on affiche la nouvelle quantié dans la page
-            (document.querySelectorAll(".produit-quantité")[i].textContent =
-              addProduit[i].quantite),
-            //on affiche le nouveau prix dans la page
-            (document.querySelectorAll(".change-price")[i].textContent = `
-             ${
-               addProduit[i].quantite *
-               addProduit[i].price.toString().replace(/00/, "")
-             }€`),
-            // affiche la quantité total des produits dans le panier
-            ajoutpanierQauntiteTotal()
-          );
-        }
-      }
-    });
-  });
-};
 // affiche la quantité total des produits dans le panier
 ajoutpanierQauntiteTotal();
-
-//fonction pour supprimer si juste 1 produit dans le panier
-const buttonMinQuantite = async (basketaffich) => {
+// mettre le prix et quantité total du panier dans récapitulatif
+// on va chercher toutes les fonctions concernées
+const refSomProduits = async (
+  basketaffich,
+  buttonMinQuantite,
+  buttonPlusQuantite,
+  removeProduit
+) => {
   await basketaffich;
-  let moins = document.querySelectorAll(".bouton-moins");
-
-  moins.forEach((negat) => {
-    negat.addEventListener("click", () => {
-      let totalAddProduit = addProduit.length;
-      for (i = 0; i < totalAddProduit; i++) {
-        console.log(totalAddProduit);
-        // si la quantité dans produit est égal à 1---------------------
-        // et si le totale de produits dans le localstorage est égal à 1
-        if (addProduit[i].quantite == 1 && totalAddProduit == 1) {
-          return (
-            //on supprime le produit du localstorage
-            localStorage.removeItem("produit"),
-            //on recharche la page
-            (location.href = "panier.html")
-          );
-        }
-        //si la quantité dans produit est égal à 1----------------------
-        // et si il y à plusieurs produits
-        // et que si produit du localstorage est égal au produit sur lequel on a cliqué
-        // et si l'option lentille du produit du localstorage est égal à l'option lentille au produit sur lequel on a cliqué
-        if (
-          addProduit[i].quantite == 1 &&
-          totalAddProduit != 1 &&
-          addProduit[i]._id == negat.dataset.id &&
-          addProduit[i].lentillechoix == negat.dataset.lentille
-        ) {
-          // splice permet de supprimer un produit du tableau
-          addProduit.splice(i, 1);
-          localStorage.setItem("produit", JSON.stringify(addProduit));
-          (location.href = "panier.html"), console.log("moins");
-        }
-        // si produit du localstorage est égal au produit sur lequel on a cliqué
-        // et si l'option lentille du produit du localstorage est égal à l'option lentille au produit sur lequel on a cliqué
-        if (
-          addProduit[i]._id == negat.dataset.id &&
-          addProduit[i].lentillechoix == negat.dataset.lentille
-        ) {
-          addProduit[i].quantite--,
-            localStorage.setItem(
-              "produit",
-              JSON.stringify(addProduit),
-              (document.querySelectorAll(".produit-quantité")[i].textContent =
-                addProduit[i].quantite),
-              //on affiche le nouveau prix dans la page
-              (document.querySelectorAll(".change-price")[i].textContent = `
-             ${
-               addProduit[i].quantite *
-               addProduit[i].price.toString().replace(/00/, "")
-             }€`),
-              console.log("moins--")
-            );
-        }
-      }
-    });
+  await buttonMinQuantite;
+  await buttonPlusQuantite;
+  await removeProduit;
+  console.log("essai");
+  // on crée les variables
+  let produitprice = [];
+  let quantiteTotalProduits;
+  let newtable = JSON.parse(localStorage.getItem("produit"));
+  // on va chercher la class dans le document
+  let afficheQuantite = document.querySelectorAll(".produit-quantité");
+  console.log(newtable);
+  // on fait une boucle pour enregistrer dans un tableau les prix multipliés par la quantité
+  newtable.forEach((tabPrice) => {
+    produitprice.push(
+      tabPrice.price.toString().replace(/00/, "") * tabPrice.quantite
+    );
+    // on met dans le tableau toutes les quantités
+    quantiteTotalProduits.push(tabPrice.quantite);
   });
+  console.log(quantiteTotalProduits);
 };
