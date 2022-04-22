@@ -3,6 +3,7 @@
   align-items: center;
   width: 100%;
   flex-direction: column;
+  background: $colorsecondary;
 }
 //________ titre entête panier___________
 .blocPanier-title {
@@ -36,6 +37,7 @@
   align-items: center;
   border: 1px black solid;
   box-shadow: 6px 6px 0px black;
+  background: white;
   //_____________ bloc1 image____________
   &_image {
     display: flex;
@@ -126,7 +128,9 @@
   max-height: 100%;
   border: 1px black solid;
   box-shadow: 6px 6px 0px black;
-  margin-left: 2rem;
+  padding: 2rem;
+  margin-left: 3rem;
+  background: white;
   .title-recap {
     font-size: 3rem;
     color: $colorprimary;
