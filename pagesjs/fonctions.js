@@ -158,7 +158,7 @@ const buttonMinQuantite = async (basketaffich) => {
           // splice permet de supprimer un produit du tableau
           addProduit.splice(i, 1);
           localStorage.setItem("produit", JSON.stringify(addProduit));
-          (location.href = "panier.html"), console.log("moins");
+          location.href = "panier.html";
         }
         //--------------------troisième condition de vérification-----------------------
         // si produit du localstorage est égal au produit sur lequel on a cliqué

@@ -112,18 +112,32 @@ const refSomProduits = async (
   console.log("essai");
   // on crée les variables
   let produitprice = [];
-  let quantiteTotalProduits;
+  let quantiteTotalProduits = [];
   let newtable = JSON.parse(localStorage.getItem("produit"));
   // on va chercher la class dans le document
   let afficheQuantite = document.querySelectorAll(".produit-quantité");
-  console.log(newtable);
+
   // on fait une boucle pour enregistrer dans un tableau les prix multipliés par la quantité
   newtable.forEach((tabPrice) => {
     produitprice.push(
       tabPrice.price.toString().replace(/00/, "") * tabPrice.quantite
     );
+
     // on met dans le tableau toutes les quantités
     quantiteTotalProduits.push(tabPrice.quantite);
   });
-  console.log(quantiteTotalProduits);
+  // on additionne les prix des produits en faisant une boucle
+  let sumproduitprice = 0;
+  for (let i = 0; i < produitprice.length; i++) {
+    sumproduitprice += produitprice[i];
+  }
+  //on additionne la quantité des produits en faisant une boucle
+  let sumproduitQunatite = 0;
+  for (let i = 0; i < quantiteTotalProduits.length; i++) {
+    sumproduitQunatite += quantiteTotalProduits[i];
+  }
+
+  // on affiche la quantité produits dans récapitulatif
+  nbArticle.textContent = `${sumproduitQunatite} articles`;
+  priceTtc.textContent = `${sumproduitprice} €`;
 };
