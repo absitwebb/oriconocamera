@@ -111,7 +111,9 @@ const buttonPlusQuantite = async (basketaffich) => {
                addProduit[i].quantite *
                addProduit[i].price.toString().replace(/00/, "")
              }€`),
-            // affiche la quantité total des produits dans le panier
+            // on met à jour le récapitulatif
+            refSomProduits(),
+            // on met à jour la quantité total des produits dans le panier
             ajoutpanierQauntiteTotal()
           );
         }
@@ -160,7 +162,7 @@ const buttonMinQuantite = async (basketaffich) => {
           localStorage.setItem("produit", JSON.stringify(addProduit));
           location.href = "panier.html";
         }
-        //--------------------troisième condition de vérification-----------------------
+        //--------------------mise à jour prix et quantité-----------------------
         // si produit du localstorage est égal au produit sur lequel on a cliqué
         // et si l'option lentille du produit du localstorage est égal à l'option lentille au produit sur lequel on a cliqué
         if (
@@ -171,6 +173,7 @@ const buttonMinQuantite = async (basketaffich) => {
             localStorage.setItem(
               "produit",
               JSON.stringify(addProduit),
+              //on affiche la nouvelle quantié
               (document.querySelectorAll(".produit-quantité")[i].textContent =
                 addProduit[i].quantite),
               //on affiche le nouveau prix dans la page
@@ -179,9 +182,58 @@ const buttonMinQuantite = async (basketaffich) => {
                addProduit[i].quantite *
                addProduit[i].price.toString().replace(/00/, "")
              }€`)
+              // affiche la quantité total des produits dans le panier
             );
+          //mise à jour récapitulatif et panier banière
+          ajoutpanierQauntiteTotal();
+          refSomProduits();
         }
       }
     });
   });
+};
+
+// mettre le prix et quantité total du panier dans récapitulatif
+// on va chercher toutes les fonctions concernées
+const refSomProduits = async (
+  basketaffich,
+  buttonMinQuantite,
+  buttonPlusQuantite,
+  removeProduit
+) => {
+  await basketaffich;
+  await buttonMinQuantite;
+  await buttonPlusQuantite;
+  await removeProduit;
+
+  // on crée les variables
+  let produitprice = [];
+  let quantiteTotalProduits = [];
+  let newtable = JSON.parse(localStorage.getItem("produit"));
+  // on va chercher la class dans le document
+  let afficheQuantite = document.querySelectorAll(".produit-quantité");
+
+  // on fait une boucle pour enregistrer dans un tableau les prix multipliés par la quantité
+  newtable.forEach((tabPrice) => {
+    produitprice.push(
+      tabPrice.price.toString().replace(/00/, "") * tabPrice.quantite
+    );
+
+    // on met dans le tableau toutes les quantités
+    quantiteTotalProduits.push(tabPrice.quantite);
+  });
+  // on additionne les prix des produits en faisant une boucle
+  let sumproduitprice = 0;
+  for (let i = 0; i < produitprice.length; i++) {
+    sumproduitprice += produitprice[i];
+  }
+  //on additionne la quantité des produits en faisant une boucle
+  let sumproduitQunatite = 0;
+  for (let i = 0; i < quantiteTotalProduits.length; i++) {
+    sumproduitQunatite += quantiteTotalProduits[i];
+  }
+
+  // on affiche la quantité produits dans récapitulatif
+  nbArticle.textContent = `${sumproduitQunatite} articles`;
+  priceTtc.textContent = `${sumproduitprice} €`;
 };

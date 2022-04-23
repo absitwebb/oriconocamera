@@ -81,6 +81,7 @@ const basketaffich = async () => {
     buttonPlusQuantite();
     // fonction bouton minimum et supprimer quantité
     buttonMinQuantite();
+    // mettre le prix et quantité total du panier dans récapitulatif
     refSomProduits();
     return;
 
@@ -97,47 +98,3 @@ basketaffich();
 
 // affiche la quantité total des produits dans le panier
 ajoutpanierQauntiteTotal();
-// mettre le prix et quantité total du panier dans récapitulatif
-// on va chercher toutes les fonctions concernées
-const refSomProduits = async (
-  basketaffich,
-  buttonMinQuantite,
-  buttonPlusQuantite,
-  removeProduit
-) => {
-  await basketaffich;
-  await buttonMinQuantite;
-  await buttonPlusQuantite;
-  await removeProduit;
-  console.log("essai");
-  // on crée les variables
-  let produitprice = [];
-  let quantiteTotalProduits = [];
-  let newtable = JSON.parse(localStorage.getItem("produit"));
-  // on va chercher la class dans le document
-  let afficheQuantite = document.querySelectorAll(".produit-quantité");
-
-  // on fait une boucle pour enregistrer dans un tableau les prix multipliés par la quantité
-  newtable.forEach((tabPrice) => {
-    produitprice.push(
-      tabPrice.price.toString().replace(/00/, "") * tabPrice.quantite
-    );
-
-    // on met dans le tableau toutes les quantités
-    quantiteTotalProduits.push(tabPrice.quantite);
-  });
-  // on additionne les prix des produits en faisant une boucle
-  let sumproduitprice = 0;
-  for (let i = 0; i < produitprice.length; i++) {
-    sumproduitprice += produitprice[i];
-  }
-  //on additionne la quantité des produits en faisant une boucle
-  let sumproduitQunatite = 0;
-  for (let i = 0; i < quantiteTotalProduits.length; i++) {
-    sumproduitQunatite += quantiteTotalProduits[i];
-  }
-
-  // on affiche la quantité produits dans récapitulatif
-  nbArticle.textContent = `${sumproduitQunatite} articles`;
-  priceTtc.textContent = `${sumproduitprice} €`;
-};
