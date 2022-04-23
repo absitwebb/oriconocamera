@@ -996,7 +996,7 @@ nav a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 80%;
+  width: 90%;
   height: 100%;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -1139,7 +1139,7 @@ nav a:hover {
   border: 1px black solid;
   -webkit-box-shadow: 6px 6px 0px black;
           box-shadow: 6px 6px 0px black;
-  padding: 2rem;
+  padding: 5rem;
   margin-left: 3rem;
   background: white;
 }
@@ -1186,6 +1186,37 @@ nav a:hover {
   margin-bottom: 2rem;
 }
 
+.recapCommande {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background: gray;
+}
+
+#injectRecappanier {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+#injectRecappanier table {
+  max-width: 100%;
+  max-height: 100%;
+  border-collapse: collapse;
+  border: 2px solid black;
+  background: #dad5d5;
+}
+
+#injectRecappanier table td {
+  border: 2px solid black;
+  padding: 2rem;
+  font-size: 2rem;
+}
+
 .formContact {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1193,7 +1224,7 @@ nav a:hover {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  width: 100%;
+  max-width: 100%;
   max-height: 100%;
   background-color: #394d60;
   color: white;
@@ -1241,27 +1272,5 @@ nav a:hover {
 
 .affichcontactnone {
   display: none;
-}
-
-#injectRecappanier {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-}
-
-#injectRecappanier table {
-  max-width: 100%;
-  max-height: 100%;
-  border-collapse: collapse;
-  border: 2px solid black;
-  background: #dad5d5;
-}
-
-#injectRecappanier table td {
-  border: 2px solid black;
-  padding: 2rem;
-  font-size: 2rem;
 }
 /*# sourceMappingURL=style.css.map */
