@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="sass/style.css" />
+    <!--______________fontawesome____________-->
+    <script
+      src="https://kit.fontawesome.com/858594d522.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>commander</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="toolbar">
+          <div class="titlesite">
+            <h1>Oricono</h1>
+            <h1>Cameras</h1>
+          </div>
+          <nav>
+            <a href="/index.html"
+              >Accueil
+              <i class="fas fa-university"></i>
+            </a>
+            <a href=""
+              >Actualité
+              <i class="fas fa-newspaper"></i>
+            </a>
+            <a href=""
+              >Boutique
+              <i class="fas fa-store"></i>
+            </a>
+            <a href="/panier.html"
+              >Panier
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href=""
+              >Qui sommes nous ?
+              <i class="fas fa-user-friends"></i>
+            </a>
+          </nav>
+          <img class="logophoto" src="public/img/cameralogo2.png" alt="" />
+        </div>
+        <!--___________________section header____________________-->
+      </header>
+      <section>
+        <div class="bannierename">
+          <a id="panierBanniere" href="">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="panierBanniereQuantite"> </span>
+            <p class="red">Mon Panier</p>
+          </a>
+        </div>
+      </section>
+      <div id="injectRecappanier">
+        <div id="injectRecappanierTotal"></div>
+      </div>
+      <!--___________________section tableau recaptitulatif panier___________________-->
+      <section></section>
+      <!--___________________section formulaire____________________-->
+      <section>
+        <div class="formContact">
+          <form id="formContactid" action="post">
+            <h2>Informations personnelles</h2>
+            <!--____________________Nom prénom____________________-->
+            <div class="formContact_Name">
+              <!--_____________prénom___________-->
+              <div class="champs">
+                <label for="prenom">Prénom</label>
+                <input id="prenom" type="text" />
+                <span id="errorPrenom"> </span>
+              </div>
+              <!--_____________nom___________-->
+              <div class="champs">
+                <label for="nom">Nom</label>
+                <input id="nom" type="text" />
+                <span id="errorNom"> </span>
+              </div>
+            </div>
+            <!--_________________adresse client__________________-->
+            <div class="formContact_Address">
+              <!--_____________adresse___________-->
+              <div class="champs">
+                <label for="adresse">Adresse</label>
+                <input id="adresse" type="text" />
+                <span id="errorAddress"> </span>
+              </div>
+              <!--_____________ville___________-->
+              <div class="champs">
+                <label for="ville">Ville</label>
+                <input id="ville" type="text" />
+                <span id="errorCity"> </span>
+              </div>
+              <!--_____________adresse___________-->
+              <div class="champs">
+                <label for="email">Email</label>
+                <input id="Email" type="text" />
+                <span id="errorEmail"> </span>
+              </div>
+            </div>
+            <!--_____________bouton___________-->
+            <button class="buttonsuite" type="submit">Commander</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!--______________script javascript____________-->
+    <script src="./pagesjs/fonctions.js"></script>
+    <script src="./pagesjs/command.js"></script>
+  </body>
+</html>

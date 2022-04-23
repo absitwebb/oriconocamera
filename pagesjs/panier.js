@@ -20,11 +20,9 @@ const basketaffich = async () => {
   if (addProduit) {
     await addProduit;
 
-    // _______________________on cache le formulaire______________________________________
-    formContact.classList.add("affichcontactnone");
     //on affiche le formulaire lorsqu'on clique sur le bouton continuer du récapitulatif
     suitecommande.addEventListener("click", () => {
-      formContact.classList.remove("affichcontactnone");
+      location.href = "command.html";
     });
     // si produit dans le panier on chande de titre
     blocPanierTitle.innerHTML = `<h2 id="titre-panier">Panier</h2>`;
