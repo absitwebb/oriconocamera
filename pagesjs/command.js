@@ -69,3 +69,35 @@ function tableCreate() {
 
 tableCreate();
 refSomProduits();
+//------------------------------------------------------------
+// vérification formulaire
+let FormContactid2 = document.forms["formContactid"];
+let error = document.querySelectorAll(".errorform");
+let inputsForm = document
+  .getElementById("formContactid")
+  .getElementsByTagName("input");
+let erreurtext;
+
+// on regarde se qui est taper dans le formulaire
+FormContactid2.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // variable qui récupère email
+  let email = inputsForm["Email"].value;
+  // on fait une boucle pour vérifier tous les champs
+  for (let i = 0; i < inputsForm.length; i++) {
+    // si les champs sont vides
+    if (!inputsForm[i].value) {
+      error[i].innerHTML = `erreur, veillez remplir le champs correctement`;
+    }
+    //------sinon--------------
+    else {
+      //on vérifie si le mail est valide
+      if (checkEmail(email)) {
+        error[i].classList.add("errorformValid");
+        error[i].innerHTML = ` ok`;
+      } else {
+        error[i].innerHTML = `erreur, adresse mail non valide`;
+      }
+    }
+  }
+});
