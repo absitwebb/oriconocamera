@@ -244,3 +244,12 @@ function checkEmail(testemail) {
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(testemail);
 }
+function checkName(testName) {
+  var regname = /^[a-zA-Z\-]+$/;
+  return regname.test(testName);
+}
+
+function checkAdress(testAdress) {
+  var regAdress = /^[a-zA-Z\s\'\-]{2,50}$/;
+  return regAdress.test(testAdress);
+}

@@ -83,6 +83,13 @@ FormContactid2.addEventListener("submit", (e) => {
   e.preventDefault();
   // variable qui récupère email
   let email = inputsForm["Email"].value;
+  // variable qui récupère nom
+  let NameForm = inputsForm["nom"].value;
+  // variable qui récupère prénom
+  let FirstNameForm = inputsForm["prenom"].value;
+  let CityForm = inputsForm["ville"].value;
+  let AdressForm = inputsForm["adresse"].value;
+
   // on fait une boucle pour vérifier tous les champs
   for (let i = 0; i < inputsForm.length; i++) {
     // si les champs sont vides
@@ -97,6 +104,34 @@ FormContactid2.addEventListener("submit", (e) => {
         error[i].innerHTML = ` ok`;
       } else {
         error[i].innerHTML = `erreur, adresse mail non valide`;
+      }
+      // on vérifie si le nom utilisateur est correcte
+      if (checkName(NameForm)) {
+        error[i].classList.add("errorformValid");
+        error[i].innerHTML = ` ok`;
+      } else {
+        error[i].innerHTML = `erreur, Nom non valide`;
+      }
+      // on vérifie si le nom utilisateur est correcte
+      if (checkName(FirstNameForm)) {
+        error[i].classList.add("errorformValid");
+        error[i].innerHTML = ` ok`;
+      } else {
+        error[i].innerHTML = `erreur, prénom non valide`;
+      }
+      // on vérifie si la ville est correcte est correcte
+      if (checkName(CityForm)) {
+        error[i].classList.add("errorformValid");
+        error[i].innerHTML = ` ok`;
+      } else {
+        error[i].innerHTML = `erreur, prénom non valide`;
+      }
+      // on vérifie si l'adresse est correcte
+      if (checkAdress(AdressForm)) {
+        error[i].classList.add("errorformValid");
+        error[i].innerHTML = ` ok`;
+      } else {
+        error[i].innerHTML = `erreur, adresse non valide`;
       }
     }
   }
