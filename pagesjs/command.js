@@ -112,7 +112,7 @@ FormContactid2.addEventListener("submit", (e) => {
       } else {
         error[i].innerHTML = `erreur, Nom non valide`;
       }
-      // on vérifie si le nom utilisateur est correcte
+      // on vérifie si le prénom utilisateur est correcte
       if (checkName(FirstNameForm)) {
         error[i].classList.add("errorformValid");
         error[i].innerHTML = ` ok`;
@@ -132,6 +132,25 @@ FormContactid2.addEventListener("submit", (e) => {
         error[i].innerHTML = ` ok`;
       } else {
         error[i].innerHTML = `erreur, adresse non valide`;
+      }
+      // on test l'ensemble du formulaire
+      if (
+        checkName(NameForm) &&
+        checkName(FirstNameForm) &&
+        checkAdress(AdressForm) &&
+        checkName(CityForm)
+      ) {
+        // si la condition est ok on crée un objet avec toutes les
+        // données du formulaire
+        let FormContact = {
+          firstName: FirstNameForm,
+          lastName: NameForm,
+          adress: AdressForm,
+          city: CityForm,
+          email: email,
+        };
+        // et on stock l'objet dans le localstorage le formulaire sous forme de string
+        localStorage.setItem("FormContact", JSON.stringify(FormContact));
       }
     }
   }
