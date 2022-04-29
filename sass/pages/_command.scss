@@ -62,6 +62,18 @@
     justify-content: space-between;
   }
 }
+.formContactNone {
+  display: none;
+}
+.ValidCommand {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: $colorprimary;
+  color: white;
+}
 .errorform {
   color: rgb(238, 70, 70);
 }

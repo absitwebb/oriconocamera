@@ -1280,6 +1280,25 @@ nav a:hover {
           justify-content: space-between;
 }
 
+.formContactNone {
+  display: none;
+}
+
+.ValidCommand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #e8662b;
+  color: white;
+}
+
 .errorform {
   color: #ee4646;
 }
