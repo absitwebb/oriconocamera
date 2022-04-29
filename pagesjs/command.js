@@ -3,6 +3,8 @@ const injectRecappanier = document.getElementById("injectRecappanier");
 const injectRecappanierTotal = document.getElementById(
   "injectRecappanierTotal"
 );
+const ContainerContact = document.querySelector(".formContact");
+const ContainerValidCommande = document.querySelector(".ValidCommand");
 let body2 = "";
 const titletable = [
   "Article",
@@ -11,6 +13,7 @@ const titletable = [
   "Prix Unitaire",
   "Prix total",
 ];
+let contact;
 //--------------on va chercher les produits du localstorage------------------------------------
 let addProduitBasket = JSON.parse(localStorage.getItem("produit"));
 //------------------------------------------------------------
@@ -142,16 +145,50 @@ FormContactid2.addEventListener("submit", (e) => {
       ) {
         // si la condition est ok on crée un objet avec toutes les
         // données du formulaire
-        let FormContact = {
+        contact = {
           firstName: FirstNameForm,
           lastName: NameForm,
-          adress: AdressForm,
+          address: AdressForm,
           city: CityForm,
           email: email,
         };
-        // et on stock l'objet dans le localstorage le formulaire sous forme de string
-        localStorage.setItem("FormContact", JSON.stringify(FormContact));
       }
     }
   }
+
+  //-------------------------------------------------------------------
+  // envoi du formulaire au server
+  //on récupère les produits du localstorage
+  const recuProducts = JSON.parse(localStorage.getItem("produit"));
+  //on crée des variables
+  let products = [];
+  let Resproduct;
+  // on fait une boucle pour récupérer les id des produits
+  for (i = 0; i < recuProducts.length; i++) {
+    products.push(recuProducts[i]._id);
+  }
+  // on met contact et product dans un objet
+  const envoiCommand = {
+    contact,
+    products,
+  };
+  // envoie formulaire et prodit vers serveur
+  const envoiServ = fetch("http://localhost:3000/api/cameras/order", {
+    method: "POST",
+    body: JSON.stringify(envoiCommand),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      Resproduct = data;
+      console.log(Resproduct);
+      ContainerContact.classList.add("formContactNone");
+      ContainerValidCommande.innerHTML = `
+      <h3> Madame Monsieur ${Resproduct.contact.lastName}</h3>
+      `;
+    })
+
+    .catch((err) => console.log("ereur:" + err));
 });
