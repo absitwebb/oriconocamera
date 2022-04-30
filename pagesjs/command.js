@@ -79,85 +79,77 @@ let error = document.querySelectorAll(".errorform");
 let inputsForm = document
   .getElementById("formContactid")
   .getElementsByTagName("input");
-let erreurtext;
+let valid = true;
 
 // on regarde se qui est taper dans le formulaire
 FormContactid2.addEventListener("submit", (e) => {
   e.preventDefault();
-  // variable qui récupère email
-  let email = inputsForm["Email"].value;
-  // variable qui récupère nom
-  let NameForm = inputsForm["nom"].value;
   // variable qui récupère prénom
   let FirstNameForm = inputsForm["prenom"].value;
-  let CityForm = inputsForm["ville"].value;
+  // variable qui récupère nom
+  let NameForm = inputsForm["nom"].value;
   let AdressForm = inputsForm["adresse"].value;
+  let CityForm = inputsForm["ville"].value;
+  // variable qui récupère email
+  let email = inputsForm["Email"].value;
+  let valid = true;
 
-  // on fait une boucle pour vérifier tous les champs
-  for (let i = 0; i < inputsForm.length; i++) {
-    // si les champs sont vides
-    if (!inputsForm[i].value) {
-      error[i].innerHTML = `erreur, veillez remplir le champs correctement`;
-    }
-    //------sinon--------------
-    else {
-      //on vérifie si le mail est valide
-      if (checkEmail(email)) {
-        error[i].classList.add("errorformValid");
-        error[i].innerHTML = ` ok`;
-      } else {
-        error[i].innerHTML = `erreur, adresse mail non valide`;
-      }
-      // on vérifie si le nom utilisateur est correcte
-      if (checkName(NameForm)) {
-        error[i].classList.add("errorformValid");
-        error[i].innerHTML = ` ok`;
-      } else {
-        error[i].innerHTML = `erreur, Nom non valide`;
-      }
-      // on vérifie si le prénom utilisateur est correcte
-      if (checkName(FirstNameForm)) {
-        error[i].classList.add("errorformValid");
-        error[i].innerHTML = ` ok`;
-      } else {
-        error[i].innerHTML = `erreur, prénom non valide`;
-      }
-      // on vérifie si la ville est correcte est correcte
-      if (checkName(CityForm)) {
-        error[i].classList.add("errorformValid");
-        error[i].innerHTML = ` ok`;
-      } else {
-        error[i].innerHTML = `erreur, prénom non valide`;
-      }
-      // on vérifie si l'adresse est correcte
-      if (checkAdress(AdressForm)) {
-        error[i].classList.add("errorformValid");
-        error[i].innerHTML = ` ok`;
-      } else {
-        error[i].innerHTML = `erreur, adresse non valide`;
-      }
-      // on test l'ensemble du formulaire
-      if (
-        checkName(NameForm) &&
-        checkName(FirstNameForm) &&
-        checkAdress(AdressForm) &&
-        checkName(CityForm)
-      ) {
-        // si la condition est ok on crée un objet avec toutes les
-        // données du formulaire
-        contact = {
-          firstName: FirstNameForm,
-          lastName: NameForm,
-          address: AdressForm,
-          city: CityForm,
-          email: email,
-        };
-        EnvoiConfirmServer();
-      }
-    }
+  // on vérifie si le prénom utilisateur est correcte et pas vide
+  if (checkName(FirstNameForm) && !FirstNameForm == "") {
+    error[0].classList.add("errorformValid");
+    error[0].innerHTML = ` ok`;
+  } else {
+    error[0].innerHTML = `erreur, prénom non valide`;
+    valid = false;
   }
 
-  //-------------------------------------------------------------------
-  // envoi du formulaire au server
-  //on récupère les produits du localstorage
+  // on vérifie si le nom utilisateur est correcte et pas vide
+  if (checkName(NameForm) && !NameForm == "") {
+    error[1].classList.add("errorformValid");
+    error[1].innerHTML = ` ok`;
+  } else {
+    error[1].innerHTML = `erreur, Nom non valide`;
+    valid = false;
+  }
+
+  // on vérifie si l'adresse est correcte et pas vide
+  if (checkAdress(AdressForm) && !AdressForm == "") {
+    error[2].classList.add("errorformValid");
+    error[2].innerHTML = ` ok`;
+  } else {
+    error[2].innerHTML = `erreur, adresse non valide`;
+    valid = false;
+  }
+  // on vérifie si la ville est correcte est correcte et pas vide
+  if (checkName(CityForm) && !CityForm == "") {
+    error[3].classList.add("errorformValid");
+    error[3].innerHTML = ` ok`;
+  } else {
+    error[3].innerHTML = `erreur, ville nom valide`;
+    valid = false;
+  }
+
+  //on vérifie si le mail est valide et pas vide
+  if (checkEmail(email) && !email == "") {
+    error[4].classList.add("errorformValid");
+    error[4].innerHTML = ` ok`;
+  } else {
+    error[4].innerHTML = `erreur, adresse mail non valide`;
+    valid = false;
+  }
+
+  // on test l'ensemble du formulaire
+  if (valid == true) {
+    // si la condition est ok on crée un objet avec toutes les
+    // données du formulaire
+    contact = {
+      firstName: FirstNameForm,
+      lastName: NameForm,
+      address: AdressForm,
+      city: CityForm,
+      email: email,
+    };
+    EnvoiConfirmServer();
+    localStorage.removeItem("produit");
+  }
 });
