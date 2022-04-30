@@ -253,3 +253,53 @@ function checkAdress(testAdress) {
   var regAdress = /^[a-zA-Z\s\'\-]{2,50}$/;
   return regAdress.test(testAdress);
 }
+
+const EnvoiConfirmServer = async () => {
+  const recuProducts = JSON.parse(localStorage.getItem("produit"));
+  //on crée des variables
+  let products = [];
+  let Resproduct;
+  // on fait une boucle pour récupérer les id des produits
+  for (i = 0; i < recuProducts.length; i++) {
+    products.push(recuProducts[i]._id);
+  }
+  // on met contact et product dans un objet
+  const envoiCommand = {
+    contact,
+    products,
+  };
+  // envoie formulaire et prodit vers serveur
+  const envoiServ = fetch("http://localhost:3000/api/cameras/order", {
+    method: "POST",
+    body: JSON.stringify(envoiCommand),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      Resproduct = data;
+      console.log(Resproduct);
+      ContainerContact.classList.add("formContactNone");
+      ContainerValidCommande.innerHTML = `
+     <h1>Merci pour votre commande</h1> 
+      <div class="container-bloc-ConfirmCommand">
+      <div class="bloc-ConfirmCommand"  >
+      <h2> Madame, Monsieur ${Resproduct.contact.lastName}</h2></br>
+       <h2> Nous vous confirmons la validation de votre commande</h2>
+        <h2> Commande No  ${Resproduct.orderId}</h2> 
+</div>
+      <div class="bloc-ConfirmCommand"  >
+      <h2> Adresse de livraison </h2></br>
+      <h2>${Resproduct.contact.lastName} ${Resproduct.contact.firstName} </h2>
+            <h2>${Resproduct.contact.address}</h2>
+      <h2>${Resproduct.contact.city}</h2></br>
+      <h2>${Resproduct.contact.email}</h2>
+
+      </div>
+       </div>
+      `;
+    })
+
+    .catch((err) => console.log("ereur:" + err));
+};

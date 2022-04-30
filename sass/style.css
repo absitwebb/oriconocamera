@@ -1284,10 +1284,22 @@ nav a:hover {
   display: none;
 }
 
+.errorform {
+  color: #ee4646;
+}
+
+.errorformValid {
+  color: #34a110;
+}
+
 .ValidCommand {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
@@ -1299,11 +1311,36 @@ nav a:hover {
   color: white;
 }
 
-.errorform {
-  color: #ee4646;
+.ValidCommand h1 {
+  font-size: 3rem;
+  color: black;
+  margin-top: 2rem;
 }
 
-.errorformValid {
-  color: #34a110;
+.container-bloc-ConfirmCommand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.bloc-ConfirmCommand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 50%;
+  max-height: 100%;
+  border: 1px black solid;
+  -webkit-box-shadow: 6px 6px 0px black;
+          box-shadow: 6px 6px 0px black;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #394d60;
+  padding: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 /*# sourceMappingURL=style.css.map */

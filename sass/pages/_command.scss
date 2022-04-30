@@ -65,18 +65,43 @@
 .formContactNone {
   display: none;
 }
+
+.errorform {
+  color: rgb(238, 70, 70);
+}
+.errorformValid {
+  color: rgb(52, 161, 16);
+}
+
 .ValidCommand {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   max-width: 100%;
   max-height: 100%;
   background-color: $colorprimary;
   color: white;
+  h1 {
+    font-size: 3rem;
+    color: black;
+    margin-top: 2rem;
+  }
 }
-.errorform {
-  color: rgb(238, 70, 70);
+.container-bloc-ConfirmCommand {
+  display: flex;
+  justify-content: space-around;
 }
-.errorformValid {
-  color: rgb(52, 161, 16);
+
+.bloc-ConfirmCommand {
+  display: flex;
+  max-width: 50%;
+  max-height: 100%;
+  border: 1px black solid;
+  box-shadow: 6px 6px 0px black;
+  flex-direction: column;
+  background-color: $colorsecondary;
+  padding: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
