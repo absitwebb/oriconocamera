@@ -7,6 +7,7 @@
     width: 25%;
     height: 300px;
     background: $colorprimary;
+
     position: absolute;
     left: 15rem;
     margin-top: 3rem;
@@ -24,6 +25,7 @@
     position: absolute;
     left: 2rem;
     top: 5rem;
+
     @include block2(mobile);
     h1 {
       color: white;
@@ -57,9 +59,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 200px;
-    height: 80px;
+    justify-content: center;
+    width: 150px;
+    height: 85px;
     margin-top: 5rem;
+    margin-left: -15rem;
+    position: absolute;
     z-index: 5;
     background: $colorsecondary;
     border: 1px black solid;
@@ -73,7 +78,7 @@
     }
     h1 {
       color: white;
-      padding-left: 1rem;
+      padding-left: 3rem;
     }
   }
 }
@@ -117,13 +122,43 @@
   }
   img {
     width: 90%;
-    height: 90%;
+    height: 80%;
     object-fit: cover;
   }
   @include blockcameras(mobile);
 }
 
 // _____responsive_______________
+@include screen-size(tablet) {
+  .containertop {
+    &_block1 {
+      height: 600px;
+      left: 50rem;
+      @include block1(tablet);
+    }
+    &_block2 {
+      width: 40%;
+      height: 300px;
+      left: 5rem;
+
+      @include block2(tablet);
+      h1 {
+        font-size: 3rem;
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+    }
+    &_block3 {
+      width: 40%;
+      height: 40%;
+      margin-left: 40rem;
+      margin-top: 16rem;
+      @include block3(tablet);
+    }
+  }
+}
+
 @include screen-size(desktop) {
   .containertop {
     &_block1 {

@@ -11,6 +11,17 @@
         transform: translateX(+30px);
       }
     }
+  } @else if $size ==tablet {
+    @keyframes block1 {
+      0% {
+        opacity: 0;
+        transform: translateX(-350px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(-150px);
+      }
+    }
   } @else if $size ==desktop {
     @keyframes block1 {
       0% {
@@ -51,6 +62,17 @@
         transform: translatey(0px);
       }
     }
+  } @else if $size ==tablet {
+    @keyframes block2 {
+      0% {
+        opacity: 0;
+        transform: translatey(-50%);
+      }
+      100% {
+        opacity: 1;
+        transform: translatey(0px);
+      }
+    }
   }
   animation-name: block2;
   animation-duration: 4s;
@@ -69,15 +91,26 @@
         transform: translatex(+0px);
       }
     }
+  } @else if $size ==tablet {
+    @keyframes _block3 {
+      0% {
+        opacity: 0;
+        transform: translatex(0px);
+      }
+      100% {
+        opacity: 1;
+        transform: translatex(+10px);
+      }
+    }
   } @else if $size ==desktop {
     @keyframes _block3 {
       0% {
         opacity: 0;
-        transform: translatey(-90%);
+        transform: translatex(+30%);
       }
       100% {
         opacity: 1;
-        transform: translatey(0px);
+        transform: translatex(+10px);
       }
     }
   }
