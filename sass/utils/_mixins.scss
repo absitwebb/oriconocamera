@@ -1,6 +1,6 @@
 // mixins pour responsive
 @mixin screen-size($size) {
-  @if $size == phone-only {
+  @if $size == mobile {
     @media (max-width: map-get($screenwith, mobile)) {
       @content;
     }

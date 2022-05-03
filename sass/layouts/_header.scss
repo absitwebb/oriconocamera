@@ -55,6 +55,9 @@ nav a:hover {
 
 /* responsive tablet*/
 @include screen-size(tablet) {
+  nav {
+    justify-content: flex-start;
+  }
   nav a i {
     opacity: 1;
   }

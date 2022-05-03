@@ -166,6 +166,11 @@ nav a:hover {
 
 /* responsive tablet*/
 @media (min-width: 800px) {
+  nav {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
   nav a i {
     opacity: 1;
   }
@@ -745,6 +750,9 @@ nav a:hover {
               transform: translatex(10px);
     }
   }
+  .containertop .vintage {
+    width: 200px;
+  }
 }
 
 @media (min-width: 1300px) {
@@ -1248,6 +1256,10 @@ nav a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 90%;
   height: 100%;
   -webkit-box-align: start;
@@ -1451,6 +1463,27 @@ nav a:hover {
   width: 80%;
   border-bottom: 3px solid #e8662b;
   margin-bottom: 2rem;
+}
+
+@media (min-width: 800px) {
+  #panier-fiche {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (min-width: 1300px) {
+  #panier-fiche {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 
 .recapCommande {

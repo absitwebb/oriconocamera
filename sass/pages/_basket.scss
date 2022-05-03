@@ -19,6 +19,7 @@
 // container produit et récapitulatif
 #panier-fiche {
   display: flex;
+  flex-direction: column;
   width: 90%;
   height: 100%;
   align-items: flex-start;
@@ -156,5 +157,20 @@
     width: 80%;
     border-bottom: 3px solid $colorprimary;
     margin-bottom: 2rem;
+  }
+}
+
+// _____responsive_______________
+
+@include screen-size(tablet) {
+  #panier-fiche {
+    flex-direction: column;
+  }
+}
+
+@include screen-size(desktop) {
+  #panier-fiche {
+    display: flex;
+    flex-direction: row;
   }
 }
